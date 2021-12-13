@@ -54,7 +54,7 @@ body {
     background-color: var(--navy);
 
     .back {
-      background-image: url(christmas.jpg);
+      background-image: url('/christmas.jpg');
       background-size: cover;
       background-blend-mode: overlay;
       background-color: var(--lightest-navy);
