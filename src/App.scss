@@ -1,0 +1,249 @@
+:root {
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green: #64ffda;
+
+  // rotate animation
+  --gradient: linear-gradient(
+    45deg,
+    #d65db1,
+    #845ec2,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+  );
+}
+
+html {
+  box-sizing: border-box; // so width will be calculated with padding and border
+}
+
+*,
+*:before,
+*:after {
+  font-family: "archia";
+  box-sizing: inherit;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent; // remove blue highlight when you hold on input buttons in css
+  -webkit-touch-callout: none; // disable callout to show number of touches on safari
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: var(--white);
+}
+
+.app {
+  // text-align: center;
+  .hero {
+    min-height: 100vh;
+    position: relative;
+
+    transform-style: preserve-3d;
+    animation: rotate 5s infinite alternate ease-in-out;
+    // rotate 180
+    transform: rotateY(0.5turn);
+
+    background-color: var(--navy);
+
+    .back {
+      background-image: url(christmas.jpg);
+      background-size: cover;
+      background-blend-mode: overlay;
+      background-color: var(--lightest-navy);
+      position: absolute;
+      inset: 0;
+      transform: translateZ(-1rem);
+      transform: rotateY(0.5turn);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transform-style: preserve-3d;
+
+      h1 {
+        // make text capitalized
+        text-transform: uppercase;
+        font-size: 8rem;
+        width: 50%;
+        transform: translateZ(20rem);
+        
+        background: var(--gradient);
+        background-size: 400%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: bg-animation 2s ease infinite;
+      }
+    }
+    .front {
+      margin: 0 auto;
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 80vh;
+
+      // animation
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      background-color: var(--navy);
+
+      h1 {
+        font-size: 6rem;
+        font-weight: 900;
+        margin: 0;
+        transform: translateZ(9rem);
+      }
+      p {
+        margin: 0;
+        // italic
+        font-style: italic;
+        color: var(--green);
+        transform: translateZ(6rem);
+      }
+    }
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 2rem;
+    border: 4px solid var(--white);
+    transform: translateZ(3rem);
+  }
+
+  .fire {
+    .firework {
+      position: absolute;
+    }
+    .explosion {
+      position: absolute;
+      left: -2px;
+      bottom: 0;
+      width: 5px;
+      height: 180px;
+      transform-origin: 50% 100%;
+      overflow: hidden;
+    }
+    .explosion:nth-child(1) {
+      transform: rotate(0deg) translateY(-15px);
+    }
+    .explosion:nth-child(2) {
+      transform: rotate(30deg) translateY(-15px);
+    }
+    .explosion:nth-child(3) {
+      transform: rotate(60deg) translateY(-15px);
+    }
+    .explosion:nth-child(4) {
+      transform: rotate(90deg) translateY(-15px);
+    }
+    .explosion:nth-child(5) {
+      transform: rotate(120deg) translateY(-15px);
+    }
+    .explosion:nth-child(6) {
+      transform: rotate(150deg) translateY(-15px);
+    }
+    .explosion:nth-child(7) {
+      transform: rotate(180deg) translateY(-15px);
+    }
+    .explosion:nth-child(8) {
+      transform: rotate(210deg) translateY(-15px);
+    }
+    .explosion:nth-child(9) {
+      transform: rotate(240deg) translateY(-15px);
+    }
+    .explosion:nth-child(10) {
+      transform: rotate(270deg) translateY(-15px);
+    }
+    .explosion:nth-child(11) {
+      transform: rotate(300deg) translateY(-15px);
+    }
+    .explosion:nth-child(12) {
+      transform: rotate(330deg) translateY(-15px);
+    }
+
+    .explosion::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 40px;
+      background-color: #f5cf52;
+    }
+    @keyframes explosion {
+      0% {
+        top: 100%;
+      }
+      33%,
+      100% {
+        top: -50%;
+      }
+    }
+
+    #firework1 {
+      left: 50%;
+      top: 50%;
+      transform: scale(1);
+    }
+    #firework1 .explosion::before {
+      animation: explosion 2s ease-in-out infinite;
+    }
+
+    #firework2 {
+      left: 40%;
+      top: 45%;
+      transform: scale(0.7);
+    }
+    #firework2 .explosion::before {
+      animation: explosion 2s 0.6s ease-in-out infinite;
+    }
+
+    #firework3 {
+      left: 60%;
+      top: 65%;
+      transform: scale(0.4);
+    }
+    #firework3 .explosion::before {
+      animation: explosion 2s 0.4s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0);
+  }
+  30% {
+    transform: rotateY(0);
+  }
+  70% {
+    transform: rotateY(0.5turn);
+  }
+  100% {
+    transform: rotateY(0.5turn);
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
