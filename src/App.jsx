@@ -1,27 +1,70 @@
-import { useState } from 'react'
-import Snowfall from 'react-snowfall'
-import FireWork from './components/Fireworks'
-import './App.scss'
+import React,{ useState } from "react";
+import Snowfall from "react-snowfall";
+import Hero from "./components/Hero";
+import "./App.scss";
+import Socials from "./components/Socials";
+import About from "./components/About";
+import ProjectCard from "./components/ProjectCard";
+
+
+const projects = [
+  {
+    header: "Covid-19 India",
+    description: [
+      "A clone of covid19india.org in Typescript.",
+      "Motivation behind this project is to learn how covid19india.org is architected.",
+    ],
+    techStack: [
+      "ReactJs",
+      "Typescript",
+      "React-Spring",
+      "i18next",
+      "sass",
+      "D3.js",
+      "eslint",
+      "esbuild",
+      "Suspense",
+    ],
+    links: [
+      {
+        label: "GitHub",
+        url: "",
+      },
+      {
+        label: "Live Demo",
+        url: "https://covid19india.org/",
+      },
+    ],
+    img: "/portfolio/img/covid-19-india.png",
+  },
+];
+
+
 
 function App() {
   return (
-    <div className="app">
-      <div className="hero">
-        <div className="front">
-          <h1>Ketan Chaudhari</h1>
-          <p>Full stack developer</p>
+    <>
+      <Snowfall snowflakeCount={50} style={{ height: "300vh", zIndex: 1000 }} />
+      <div className="app">
+        <Socials />
+        <div className="hero-about-container">
+          <div className="hero-container">
+            <Hero />
+            <hr />
+          </div>
+          <About />
         </div>
-        <div className="back">
-          <h1>merry christmas </h1> 
+        <div className="projects">
+          <h1>Some of my Projects</h1>
+
+          {projects.map((project) => (
+            <ProjectCard project={project} key={project.header}/>
+          ))}
+          
         </div>
-        <FireWork />
       </div>
-      <div>
-      </div>
-      <Snowfall
-        snowflakeCount={50}/>
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
