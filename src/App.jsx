@@ -5,6 +5,7 @@ import "./App.scss";
 import Socials from "./components/Socials";
 import About from "./components/About";
 import ProjectCard from "./components/ProjectCard";
+import FamilyTree from "./components/FamilyTree";
 
 const projects = [
   {
@@ -205,7 +206,7 @@ function App() {
     <>
       <Snowfall snowflakeCount={50} style={{ height: "300vh", zIndex: 1000 }} />
       <div className="app">
-        <Socials />
+        
         <div className="hero-about-container">
           <div className="hero-container">
             <Hero />
@@ -213,13 +214,16 @@ function App() {
           </div>
           <About />
         </div>
-        <div className="projects">
+        <FamilyTree />
+        {/* https://ketan-10.github.io/portfolio/#projects */}
+        <div className="projects" id="projects"> 
           <h1>Some of my Projects</h1>
 
           {projects.reverse().map((project) => (
             <ProjectCard project={project} key={project.header} />
           ))}
         </div>
+        <Socials />
       </div>
     </>
   );

@@ -46,6 +46,8 @@
 
 html {
   box-sizing: border-box; // so width will be calculated with padding and border
+  // smooth scrolling
+  scroll-behavior: smooth;
 }
 
 *,
@@ -63,35 +65,29 @@ body {
   background: var(--navy);
   color: var(--slate);
 }
-
+// .app .projects .project:hover .project-img::before{
+//   opacity: 0;
+// }
 
 .app {
   // text-align: center;
 
-  
   .socials {
     background: var(--navy);
-    position: fixed;
-    z-index: 2;
-    bottom: 0;
     display: flex;
-    width: var(--social-width);
     // width: fit-content;
     // display: inline-flex; // or fit-content
-
     padding: 2rem;
+    padding-bottom: 4rem;
     gap: 1rem;
-
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    top: 0;
-
+    
     &::after,
     &::before {
       content: "";
-      width: 1px;
-      height: 100px;
+      width: 100px;
+      height: 1px;
       background-color: var(--white);
     }
   }
@@ -108,11 +104,11 @@ body {
     }
     .about {
       height: 100vh;
-
+      
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: var(--social-width);
+      padding-top: 3rem;
       position:sticky;
       z-index: 1;
       bottom: 0;
@@ -180,7 +176,7 @@ body {
           // background-blend-mode: overlay;
           // background-color: var(--lightest-navy);
           position: absolute;
-          inset: 0;
+          inset: 2rem;
           transform: translateZ(-1rem);
           transform: rotateY(0.5turn);
 
@@ -194,8 +190,7 @@ body {
           h1 {
             // make text capitalized
             text-transform: uppercase;
-            font-size: 8rem;
-            width: 50%;
+            font-size: clamp(2rem, 5vw, 8rem);
             transform: translateZ(20rem);
 
             background: var(--gradient);
@@ -209,6 +204,8 @@ body {
         }
         .front {
           margin: 0 auto;
+          // padding: 2rem;
+          align-items: center;
           max-width: 960px;
           display: flex;
           flex-direction: column;
@@ -220,7 +217,7 @@ body {
           backface-visibility: hidden;
 
           h1 {
-            font-size: 6rem;
+            font-size: clamp(2rem, 5vw, 6rem);
             font-weight: 900;
             margin: 0;
             transform: translateZ(9rem);
@@ -342,7 +339,6 @@ body {
     }
   }
   .projects {
-    padding-left: var(--social-width);
     max-width: 1200px;
     margin: 4rem auto;
     display: flex;
@@ -355,12 +351,14 @@ body {
       align-items: center;
 
 
-      // following 2 thing does not work TODO : 
-      &:first-child {
-        margin-top: 0;
+      // following 2 thing does not work 
+
+      // not Work due to https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
+      &:nth-child(2) {
+        margin-top: 1rem;
       }
       &:hover {
-        .project-image {  
+        .project-img {  
           &::before {
             opacity: 0;
           }
@@ -483,6 +481,12 @@ body {
       background-color: var(--lightest-navy);
     }
   }
+}
+
+.family-tree {
+  padding-right: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
 }
 
 // @keyframes rotate {
@@ -657,3 +661,45 @@ body {
 a {
   text-decoration: none !important;
 }
+
+@media (min-width: 1100px) {
+  .front {
+    align-items: start !important;
+  }
+}
+
+
+@media (min-width: 700px) {
+
+  .back {
+    h1 {
+      width: 50% !important;
+    }
+  }
+  .app {
+
+    .about, .projects, .family-tree {
+      padding-left: var(--social-width);
+    }
+  
+    .socials{
+      
+      position: fixed;
+      z-index: 2;
+      bottom: 0;
+      top: 0;
+      width: var(--social-width);
+      flex-direction: column;
+      padding-bottom: 2rem;
+  
+      &::after,
+      &::before {
+        content: "";
+        width: 1px;
+        height: 100px;
+        background-color: var(--white);
+      }
+    }
+  }
+}
+ 
