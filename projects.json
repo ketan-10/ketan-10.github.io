@@ -1,0 +1,181 @@
+[
+  {
+    "order": 1,
+    "header": "Covid-19 India",
+    "description": [
+      "A clone of covid19india.org in Typescript.",
+      "Re-written covid19india.org as a case study, To learn it's architecture. Implemented common patterns like dark-mode, multi-language support, data-fetching and lazy-loading etc."
+    ],
+    "techStack": [
+      "ReactJs",
+      "Typescript",
+      "React-Spring",
+      "i18next",
+      "sass",
+      "D3.js",
+      "eslint",
+      "esbuild",
+      "Suspense"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ketan-10/covid19india-react-clone"
+      },
+      {
+        "label": "LiveDemo",
+        "url": "https://ketan-10.github.io/covid19india-react-clone/"
+      }
+    ],
+    "img": "/portfolio/img/compressed/covid-19-india.webp"
+  },
+  {
+    "order": 2,
+    "header": "Emoji Rain",
+    "description": [
+      "Interactive Emoji rain with WebSockets",
+      "Created serverless backend with Infrastructure as a code using AWS CDK",
+      "Hosted a hands-on session with this project on \"Getting started with AWS\""
+    ],
+    "techStack": [
+      "React",
+      "AWS CDK",
+      "Github Actions",
+      "AWS Lambda",
+      "API Gateway",
+      "DynamoDB",
+      "WebSocket",
+      "React-Spring"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ketan-10/emoji-rain"
+      },
+      {
+        "label": "Cloud",
+        "url": "https://github.com/ketan-10/emoji-rain/tree/server"
+      },
+      {
+        "label": "LiveDemo",
+        "url": "https://ketan-10.github.io/emoji-rain/"
+      },
+      {
+        "label": "Youtube",
+        "url": "https://youtu.be/-wMsctEBC0w"
+      }
+    ],
+    "img": "/portfolio/img/compressed/emoji-rain.gif"
+  },
+  {
+    "order": 3,
+    "header": "ytLiveChatBot",
+    "description": [
+      "Youtube live-stream chat-bot",
+      "ytLiveChatBot is a golang library for cli base applications that makes it easy to read and write live-chat on/from one or more youtube live streams simultaneously using youtube api and Google Oauth"
+    ],
+    "techStack": [
+      "Google Oauth",
+      "Golang",
+      "Go-routines",
+      "Youtube API"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ketan-10/ytLiveChatBot"
+      }
+    ],
+    "img": "/portfolio/img/compressed/ytchatbot.webp"
+  },
+  {
+    "order": 4,
+    "header": "jwt-auth-server",
+    "description": [
+      "A simple JWT auth server",
+      "Created a JWT auth server template using recommended best practices and design patterns, to get started with your project quickly",
+      "The template features secure access-token and refresh-token generation and validation, TypeORM with postgres, Apollo GraphQL and TypeGraphQL for schema entity mapping"
+    ],
+    "techStack": [
+      "TypeScript",
+      "JWT",
+      "Apollo-GraphQL",
+      "TypeORM",
+      "Postgres",
+      "Type-graphql"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ketan-10/jwt-auth-node"
+      }
+    ],
+    "img": "/portfolio/img/compressed/jwt-auth.webp"
+  },
+  {
+    "order": 5,
+    "header": "Tic Tac Toe",
+    "description": [
+      "A Android App of Single Player/Multiplayer Tic Tac Toe using min-max algorithm",
+      "Created an unbeatable Single player Tic-Tac-Toe game as a college project and deployed it on PlayStore"
+    ],
+    "techStack": [
+      "Java",
+      "Min-max algorithm",
+      "Android Studio",
+      "PlayStore"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ketan-10/Tic-Tac-Toe"
+      },
+      {
+        "label": "PlayStore",
+        "url": "https://play.google.com/store/apps/details?id=audioapk.com.example.android.tic_tac_toe"
+      }
+    ],
+    "img": "/portfolio/img/compressed/tic-tac-toe.webp"
+  },
+  {
+    "order": 6,
+    "header": "Butterfly: Way Through Sky",
+    "description": [
+      "A 2D Android Game in Java using Game Loop",
+      "Created a 2D Android Game like 'flappy bird' as a College project and deployed it on Google Play Store."
+    ],
+    "techStack": [
+      "Java",
+      "Game loop",
+      "Android Studio",
+      "PlayStore",
+      "Graphics Design"
+    ],
+    "links": [
+      {
+        "label": "PlayStore",
+        "url": "https://play.google.com/store/apps/details?id=audioapk.com.example.android.bestprojectphase_1"
+      }
+    ],
+    "img": "/portfolio/img/compressed/butterfly.webp"
+  },
+  {
+    "order": 7,
+    "header": "Chrome Extension: Remove DOM Events",
+    "description": [
+      "Created A Chrome Extension that removes DOM events from the page",
+      "Some websites have DOM events that can be used to track user activity and track user behavior, for example a site might track if you change the tab or click on a link. This extension removes these events from the page."
+    ],
+    "techStack": [
+      "Javascript",
+      "Chrome Extension"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/ketan-10/remove-dom-events"
+      }
+    ],
+    "img": "/portfolio/img/compressed/remove-dom-events.webp"
+  }
+]
