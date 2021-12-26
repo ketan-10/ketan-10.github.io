@@ -1,23 +1,21 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
-
-
+import useSWR from "swr";
 
 const width = 700;
 // const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
 const dy = width / 9;
 // const dx = 15;
-
 const windowWidth = window.innerWidth;
 const value = 18000;
-const dx = Math.min(Math.max(value / windowWidth, 15), 40);
-console.log("dx: ",dx);
-console.log("window-width ",windowWidth);
-console.log("value / window-width  ",value / windowWidth);
-const margin = { top: dx, right: 0, bottom: dy, left: dx+40 };
+const dx = Math.min(Math.max(value / windowWidth, 15), 45);
+// console.log("dx: ",dx);
+// console.log("window-width ",windowWidth);
+// console.log("value / window-width  ",value / windowWidth);
+const margin = { top: dx, right: 0, bottom: dy, left: dx + 40 };
 
-const font_size = dx / 1.5;
-console.log("font-size: ",font_size);
+const font_size = Math.min(dx / 1.5, 20);
+// console.log("font-size: ",font_size);
 const tree = d3.tree().nodeSize([dx, dy]);
 const diagonal = d3
   .linkHorizontal()
@@ -32,21 +30,34 @@ const FamilyTree = () => {
   const svgLinks = useRef();
   const svgNodes = useRef();
 
+  const { data } = useSWR(
+    "/portfolio/data.json",
+    (link) =>
+      fetch(link)
+        // .then((res) => new Promise((r) => setTimeout(() => r(res), 7000))) // test loading
+        .then((res) => res.json()), // we can generate uniques 'key' here and append it to the data.
+    {
+      revalidateOnMount: true,
+      suspense: true, // fallback to top-most suspense till load
+      // also as suspense data will never be null -> https://swr.vercel.app/docs/suspense
+    }
+  );
+
+  console.log("data: ", data);
+
   // https://github.com/facebook/react/issues/14326 -> Async useEffect is pretty much unreadable #14326
   useEffect(() => {
     async function fetchData() {
-      const data = await d3.json("/portfolio/data.json");
+      // const data = await d3.json("/portfolio/data.json");
       // const data = d3.json();
-      console.log(data);
       const root = d3.hierarchy(data, (d) => d.c);
-      console.log(root);
       root.x0 = dy / 2;
       root.y0 = 0;
       root.descendants().forEach((d, i) => {
         d.id = i;
         d._children = d.children;
         // all my direct ancestors.
-        d.children = ketanLocation.startsWith(d.data.i) ? d.children: null;
+        d.children = ketanLocation.startsWith(d.data.i) ? d.children : null;
       });
 
       const svg = d3
@@ -63,13 +74,10 @@ const FamilyTree = () => {
         .attr("stroke-opacity", 0.4)
         .attr("stroke-width", 1.5);
 
-      const gNode = d3
-        .select(svgNodes.current)
-        .attr("pointer-events", "all");
+      const gNode = d3.select(svgNodes.current).attr("pointer-events", "all");
 
       function update(source) {
         const duration = d3.event && d3.event.altKey ? 2500 : 250;
-        console.log(duration);
         const nodes = root.descendants().reverse();
         const links = root.links();
 
@@ -85,7 +93,6 @@ const FamilyTree = () => {
         });
 
         const height = right.x - left.x + margin.top + margin.bottom;
-
 
         const transition = svg
           .transition()
@@ -104,7 +111,7 @@ const FamilyTree = () => {
           .enter()
           .append("g")
           .attr("transform", (d) => `translate(${source.y0},${source.x0})`)
-          .attr("cursor", (d) => (d._children ? "pointer": "default"))
+          .attr("cursor", (d) => (d._children ? "pointer" : "default"))
           .attr("fill-opacity", 0)
           .attr("stroke-opacity", 0)
           .on("click", (d) => {
@@ -115,22 +122,33 @@ const FamilyTree = () => {
         nodeEnter
           .append("circle")
           .attr("r", 2.5)
-          .attr("fill", (d) => (d._children ? "transparent" : "var(--light-slate)"))
-          .attr("stroke", (d) => (d._children ? "var(--green)": null))
+          .attr("fill", (d) =>
+            d._children ? "transparent" : "var(--light-slate)"
+          )
+          .attr("stroke", (d) => (d._children ? "var(--green)" : null))
           .attr("stroke-width", 1);
 
         nodeEnter
           .append("text")
           .attr("dy", "0.31em")
           .attr("font-size", font_size)
-          .attr("x", (d) => (d._children ? -6 : 6))
+          .attr("x", (d) => (d._children || d.depth > 7 ? -6 : 6))
           // .attr("x", (d) => -6)
-          .attr("text-anchor", (d) => (d._children ? "end" : "start"))
+          .attr("text-anchor", (d) =>
+            d._children || d.depth > 7 ? "end" : "start"
+          )
           .text((d) => d.data.v)
-          .attr("fill", (d) => (d.data.v === ketan ? "var(--white)" : d._children ? "var(--green)": "var(--lightest-slate)"));
+          .attr("fill", (d) =>
+            d.data.v === ketan
+              ? "var(--white)"
+              : d._children
+              ? "var(--green)"
+              : "var(--lightest-slate)"
+          );
 
         // Transition nodes to their new position.
-        const nodeUpdate = node
+        // Initially all nodes are positioned at the root's position.
+        node
           .merge(nodeEnter)
           .transition(transition)
           .attr("transform", (d) => `translate(${d.y},${d.x})`)
@@ -138,7 +156,8 @@ const FamilyTree = () => {
           .attr("stroke-opacity", 1);
 
         // Transition exiting nodes to the parent's new position.
-        const nodeExit = node
+        // source is node which is clicked or root node
+        node
           .exit()
           .transition(transition)
           .remove()

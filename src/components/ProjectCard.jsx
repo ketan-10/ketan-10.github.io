@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { GitHub, ExternalLink, Youtube, Play } from "react-feather";
+import { GitHub, ExternalLink, Youtube, Play, Cloud } from "react-feather";
 import useIsVisible from "../hooks/useIsVisible";
 
 const labelIcon = {
@@ -14,6 +14,9 @@ const labelIcon = {
   },
   PlayStore: {
     icon: <Play />,
+  },
+  Cloud: {
+    icon: <Cloud/>
   }
 };
 // No need to Memoized this component, As comparing props for equality is more expensive than just rendering.

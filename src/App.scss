@@ -64,10 +64,6 @@ body {
   background: var(--navy);
   color: var(--slate);
 }
-// .app .projects .project:hover .project-img::before{
-//   opacity: 0;
-// }
-
 .app {
   // text-align: center;
 
@@ -76,7 +72,6 @@ body {
 
     .about {
       height: 100vh;
-      // background-color: var(--navy);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -102,7 +97,6 @@ body {
           gap: 0.5rem;
           & > div {
             display: flex;
-            // padding-left: ;
             gap: 1rem;
             span {
               &:first-child {
@@ -117,9 +111,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        a {
-          // font-size: 0.9rem;
-        }
       }
     }
     .info-header {
@@ -135,7 +126,6 @@ body {
         // display: inline-flex; // or fit-content
         z-index: 1;
         padding: 2rem;
-        // padding-bottom: 4rem;
         gap: 1rem;
         align-items: center;
         justify-content: center;
@@ -151,7 +141,6 @@ body {
       hr {
         padding: 0;
         margin: 0;
-        // border-color: var(--green);
         border-image: var(--gradient);
         border-image-slice: 1;
         // remove double border
@@ -166,25 +155,15 @@ body {
         flex-direction: column;
         z-index: 2;
         .hero {
-          // border: 1px solid;
-          // margin: 10px;
-          // box-shadow: 5px 10px 18px black;
           flex-grow: 1;
           display: flex;
           // height: 100%; // for some reason just height 100% doesn't work
           transform-style: preserve-3d;
           // transform: rotateY(0.5turn);
-          animation: rotate 5s -2s infinite alternate ease-in-out;
-
-          // rotate 180
-
+          // animation: rotate 5s -2s infinite alternate ease-in-out;
           background-color: var(--navy);
 
           .back {
-            // background-image: url('/christmas.jpg');
-            // background-size: cover;
-            // background-blend-mode: overlay;
-            // background-color: var(--lightest-navy);
             position: absolute;
             inset: 2rem;
             transform: translateZ(-1rem);
@@ -202,7 +181,6 @@ body {
               text-transform: uppercase;
               font-size: clamp(2rem, 5vw, 8rem);
               transform: translateZ(20rem);
-
               background: var(--gradient);
               background-size: 400%;
               background-clip: text;
@@ -214,7 +192,6 @@ body {
           }
           .front {
             margin: 0 auto;
-            // padding: 2rem;
             align-items: center;
             max-width: 960px;
             display: flex;
@@ -362,9 +339,7 @@ body {
       align-items: center;
       position: relative;
 
-      // following 2 thing does not work
-
-      // not Work due to https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
+      // first-child will not Work due to https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
       &:nth-child(2) {
         margin-top: 1rem;
       }
@@ -379,15 +354,10 @@ body {
 
      
       .project-img {
-        // grid-area: 1 / 1 / -1 / -1;
 
         position: absolute;
         inset: 0;
-        // margin-left: -2rem;
         line-height: 0;
-
-        // height: 100%;
-        
 
         overflow: hidden;
         display: flex;
@@ -408,17 +378,12 @@ body {
         }
 
         img {
-          // mix-blend-mode: screen;
           object-fit: cover;
-          // center image
-          // object-position: center;
           object-position: center;
           
           min-width: 100%;
           min-height: 100%;
           flex-shrink: 0;
-          // overflow: hidden;
-          // line-height: 0;
         }
       }
       .project-content {
@@ -494,27 +459,7 @@ body {
   padding: 1rem;
   max-width: 1200px;
   margin: 4rem auto;
-
-  text {
-    // font-size: clamp(1rem, calc(2rem - 1vw), 2rem);
-    // font-size: calc(1.5rem - 1vw) !important;
-  }
 }
-
-// @keyframes rotate {
-//   0% {
-//     transform: rotateY(0.5turn);
-//   }
-//   30% {
-//     transform: rotateY(0);
-//   }
-//   70% {
-//     transform: rotateY(0);
-//   }
-//   100% {
-//     transform: rotateY(0.5turn);
-//   }
-// }
 
 @keyframes rotate {
   0% {
@@ -639,6 +584,13 @@ body {
     color: var(--blue-mid);
   }
 }
+.stackoverflow {
+  color: var(--orange);
+
+  &:hover {
+    color: var(--orange-mid);
+  }
+}
 
 .database {
   color: var(--yellow);
@@ -697,7 +649,16 @@ a {
     }
 
     .hero-about-container {
+
       .info-header {
+
+        .hero-container {
+          .hero{
+            .front {
+              margin-left: 20%;
+            }
+          }
+        }
         .socials {
           position: fixed;
           bottom: 0;

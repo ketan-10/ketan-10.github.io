@@ -39,7 +39,7 @@ const About = () => {
           className="underline"
           target="_blank"
           rel="noopener noreferrer"
-          href="www.youtube.com"
+          href="https://www.credential.net/abda09fd-7b7b-46cd-a8ea-e3fc5a226b73"
         >
           Google Certified Associate Android Developer
         </a>
