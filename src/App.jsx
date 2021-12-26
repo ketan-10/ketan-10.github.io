@@ -7,8 +7,10 @@ import About from "./components/About";
 import ProjectCard from "./components/ProjectCard";
 import FamilyTree from "./components/FamilyTree";
 
+
 const projects = [
   {
+    order: 1,
     header: "Covid-19 India",
     description: [
       "A clone of covid19india.org in Typescript.",
@@ -38,6 +40,7 @@ const projects = [
     img: "/portfolio/img/covid-19-india.png",
   },
   {
+    order: 2,
     header: "Emoji Rain",
     description: [
       "Interactive Emoji rain with WebSockets in react and AWS lambda",
@@ -69,6 +72,7 @@ const projects = [
     img: "/portfolio/img/emoji-rain.gif",
   },
   {
+    order: 3,
     header: "ytLiveChatBot",
     description: [
       "Youtube live-stream chat-bot",
@@ -98,6 +102,7 @@ const projects = [
     img: "/portfolio/img/ytchatbot.png",
   },
   {
+    order: 4,
     header: "jwt-auth-server",
     description: [
       "A simple JWT auth server",
@@ -208,8 +213,10 @@ function App() {
       <div className="app">
         
         <div className="hero-about-container">
-          <div className="hero-container">
+          <div className="info-header">
             <Hero />
+            <hr />
+            <Socials />
             <hr />
           </div>
           <About />
@@ -223,7 +230,6 @@ function App() {
             <ProjectCard project={project} key={project.header} />
           ))}
         </div>
-        <Socials />
       </div>
     </>
   );

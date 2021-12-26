@@ -1,11 +1,23 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
+
+
 const width = 700;
 // const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
-const margin = { top: 10, right: 0, bottom: 10, left: 40 };
-const dy = width / 8;
-const dx = 15;
+const dy = width / 9;
+// const dx = 15;
+
+const windowWidth = window.innerWidth;
+const value = 18000;
+const dx = Math.min(Math.max(value / windowWidth, 15), 40);
+console.log("dx: ",dx);
+console.log("window-width ",windowWidth);
+console.log("value / window-width  ",value / windowWidth);
+const margin = { top: dx, right: 0, bottom: dy, left: dx+40 };
+
+const font_size = dx / 1.5;
+console.log("font-size: ",font_size);
 const tree = d3.tree().nodeSize([dx, dy]);
 const diagonal = d3
   .linkHorizontal()
@@ -110,6 +122,7 @@ const FamilyTree = () => {
         nodeEnter
           .append("text")
           .attr("dy", "0.31em")
+          .attr("font-size", font_size)
           .attr("x", (d) => (d._children ? -6 : 6))
           // .attr("x", (d) => -6)
           .attr("text-anchor", (d) => (d._children ? "end" : "start"))
