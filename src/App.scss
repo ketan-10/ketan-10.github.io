@@ -364,7 +364,7 @@ body {
         justify-content: center;
         // background-color: var(--green);
         
-        filter: grayscale(80%) contrast(1) brightness(25%);
+        filter: grayscale(80%) contrast(1) brightness(20%);
         transition: filter 0.5s ease-in-out;
 
         &::before {
