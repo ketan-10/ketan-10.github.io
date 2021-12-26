@@ -3,8 +3,10 @@
 ## Inspiration
 - [Web Developer Reacts to Beautiful Portfolio Websites](https://youtu.be/KWVJTRWILjU)
 - Color palette and Design Inspiration: [Brittany Chiang](https://brittanychiang.com/)
-
-## TODOs
+## Family Tree
+- The Data for family tree is collected with the help of my dad nilkanth chaudhari and uncle bhaskar chaudhari also thanks to other family member who helped on whatsapp group.
+- Only boys are shown in the tree to maintain consistency with historical source which had only boys data.  
+## Todo
 - `Safari` not supported due to testing limitation, add support or suggest user to use another browser.
 
 - Code enhancement:
