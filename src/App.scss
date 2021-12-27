@@ -160,7 +160,7 @@ body {
           // height: 100%; // for some reason just height 100% doesn't work
           transform-style: preserve-3d;
           // transform: rotateY(0.5turn);
-          // animation: rotate 5s -2s infinite alternate ease-in-out;
+          animation: rotate 5s -2s infinite alternate ease-in-out;
           background-color: var(--navy);
 
           .back {
@@ -364,7 +364,7 @@ body {
         justify-content: center;
         // background-color: var(--green);
         
-        filter: grayscale(80%) contrast(1) brightness(25%);
+        filter: grayscale(80%) contrast(1) brightness(20%);
         transition: filter 0.5s ease-in-out;
 
         &::before {
