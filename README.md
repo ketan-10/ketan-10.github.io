@@ -1,4 +1,4 @@
-# [Portfolio - Live🟢](ketan-10.github.io/portfolio/)
+# [Portfolio - Live🟢](https://ketan-10.github.io/portfolio/)
 
 ## Inspiration
 - [Web Developer Reacts to Beautiful Portfolio Websites](https://youtu.be/KWVJTRWILjU)
