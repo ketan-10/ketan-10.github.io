@@ -16,6 +16,7 @@
 
 - Upgrade `d3` to version 7 and split d3 imports to sub libraries.
 - Use `styled components` instead of cluttering everything in single `.scss` file.
+- Add `react-helmet` for SEO and meta-data
 
 ## Notes
 - [When to use .jpg or .png? the answer is WebP... sort of](https://youtu.be/Z_28syzkv-0)
