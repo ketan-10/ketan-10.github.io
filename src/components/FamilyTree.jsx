@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 import useSWR from "swr";
+import useIsVisible from "../hooks/useIsVisible";
 
+const animationDelay = 200;
 const width = 700;
 // const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
 const dy = width / 9;
@@ -42,14 +44,14 @@ const FamilyTree = () => {
       // also as suspense data will never be null -> https://swr.vercel.app/docs/suspense
     }
   );
-
-  console.log("data: ", data);
+  const isVisible = useIsVisible(svgRef);
 
   // https://github.com/facebook/react/issues/14326 -> Async useEffect is pretty much unreadable #14326
   useEffect(() => {
     async function fetchData() {
       // const data = await d3.json("/portfolio/data.json");
       // const data = d3.json();
+      if(!data || !isVisible || !svgRef || !svgLinks || !svgNodes) return;
       const root = d3.hierarchy(data, (d) => d.c);
       root.x0 = dy / 2;
       root.y0 = 0;
@@ -197,16 +199,21 @@ const FamilyTree = () => {
         });
       }
 
-      update(root);
+      // update(root); after animationDelay
+      await new Promise(s => setTimeout(() => s(update(root)), animationDelay));
     }
     fetchData();
-  }, []);
+  }, [svgRef, svgLinks, svgNodes, data, isVisible]);
 
   return (
     <div className="family-tree">
       <svg ref={svgRef}>
-        <g ref={svgLinks}></g>
-        <g ref={svgNodes}></g>
+        {isVisible && (
+          <>
+            <g ref={svgLinks}></g>
+            <g ref={svgNodes}></g>
+          </>
+        )}
       </svg>
     </div>
   );
