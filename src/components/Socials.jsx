@@ -17,7 +17,7 @@ const Icons = {
   },
   twitter: {
     icon: <Twitter />,
-    url: "https://twitter.com/ketanch41947933",
+    url: "https://twitter.com/1010ketan",
   },
   // send: {
   //   icon: <Send />,
