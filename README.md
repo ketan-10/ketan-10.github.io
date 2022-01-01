@@ -18,6 +18,13 @@
 - Use `styled components` instead of cluttering everything in single `.scss` file.
 - Add `react-helmet` for SEO and meta-data
 
+# Github - Pages 
+- ketan-10.github.io is connected to ketan.link 
+- Note: As before this repo-name was 'portfolio' -> so The URL given by github pages was ketan-10.github.io/portfolio
+- So to keep the backward compatibility, I added the folder 'portfolio' in public directory with index.html routing to homepage.
+- Note If I in future create another repo called 'portfolio' and add gh-pages. the url '/portfolio' will be redirected to new repo. *Not the folder named portfolio in This repo*.
+
+
 ## Notes
 - [When to use .jpg or .png? the answer is WebP... sort of](https://youtu.be/Z_28syzkv-0)
 - [SVG: fixed font size](https://stackoverflow.com/questions/43604385/svg-fixed-font-size)
