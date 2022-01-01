@@ -7,12 +7,13 @@ import About from "./components/About";
 import ProjectCard from "./components/ProjectCard";
 import useSWR from 'swr';
 import FamilyTreeLoader from "./components/loaders/FamilyTreeLoader";
+import { BASE_URL } from "./Constants";
 
 const FamilyTree = lazy(() => import("./components/FamilyTree"));
 
 function App() {
   const { data: projects } = useSWR(
-    '/portfolio/projects.json',
+    `${BASE_URL}/projects.json`,
     (link) => fetch(link).then((res) => res.json()), // we can generate uniques 'key' here and append it to the data.
     {
       revalidateOnMount: true,
@@ -38,7 +39,6 @@ function App() {
         <Suspense fallback={<FamilyTreeLoader/>}>
           <FamilyTree />
         </Suspense>
-        {/* https://ketan-10.github.io/portfolio/#projects */}
         {projects &&(
 
         <div className="projects" id="projects"> 

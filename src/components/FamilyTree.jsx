@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 import useSWR from "swr";
 import useIsVisible from "../hooks/useIsVisible";
+import { BASE_URL } from "../Constants";
 
 const animationDelay = 200;
 const width = 700;
@@ -33,7 +34,7 @@ const FamilyTree = () => {
   const svgNodes = useRef();
 
   const { data } = useSWR(
-    "/portfolio/data.json",
+    `${BASE_URL}/data.json`,
     (link) =>
       fetch(link)
         // .then((res) => new Promise((r) => setTimeout(() => r(res), 7000))) // test loading

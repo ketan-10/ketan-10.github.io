@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { GitHub, ExternalLink, Youtube, Play, Cloud } from "react-feather";
 import useIsVisible from "../hooks/useIsVisible";
+import {BASE_URL} from '../Constants'
 
 const labelIcon = {
   GitHub: {
@@ -46,7 +47,7 @@ const ProjectCard = ({ project }) => {
               {project.links.map((link) => (
                 <a
                   key={link.label}
-                  href={link.url}
+                  href={BASE_URL + link.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="icon"
