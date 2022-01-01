@@ -11,7 +11,7 @@ const Hero = () => {
           <p>Full stack developer</p>
         </div>
         <div className="back">
-          <h1>merry christmas </h1>
+          <h1>Happy New Year</h1>
         </div>
         <FireWork />
       </div>
