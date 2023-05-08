@@ -8,8 +8,7 @@ const About = () => {
       <div className="work-experience">
         <h5>Work Experience: </h5>
         <p>
-          I am currently working in TCS since Aug. 2020, Some of my
-          contributions in TCS:{" "}
+          I am currently working in NCS india, with 3 years of experience in with I have:
         </p>
         <div className="work-experience-points">
           <div>
@@ -19,17 +18,15 @@ const About = () => {
           </div>
           <div>
             <span>▹</span>
-            Experienced in DevOps building production grade CI/CD pipelines.
+            Created a from scratch production grade reactJs application with performance and scalability in mind.
           </div>
           <div>
             <span>▹</span>
-            Created and Deployed Automated Workflows and System Monitoring using
-            AWS lambda.
+            Created and Deployed Automated Workflows and System Monitoring.
           </div>
           <div>
             <span>▹</span>
-            In Spring boot Created a secure single-sign-on system for client
-            application using Azure Ad and SAML.
+            Worked in technologies like AWS serverless, Golang, GraphQL to provide solution for different complex business scenarios.
           </div>
         </div>
       </div>
@@ -39,9 +36,9 @@ const About = () => {
           className="underline"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.credential.net/abda09fd-7b7b-46cd-a8ea-e3fc5a226b73"
+          href="https://www.credly.com/badges/93940c38-799a-42ae-bc79-14854e9078ad/public_url"
         >
-          Google Certified Associate Android Developer
+          Certified Kubernetes Application Developer
         </a>
         <p>
           Contributed to open-source projects like{" "}

@@ -154,6 +154,7 @@ body {
         display: flex;
         flex-direction: column;
         z-index: 2;
+
         .hero {
           flex-grow: 1;
           display: flex;
@@ -162,6 +163,40 @@ body {
           // transform: rotateY(0.5turn);
           animation: rotate 5s -2s infinite alternate ease-in-out;
           background-color: var(--navy);
+
+          .scroll-down-container {
+          
+            position: absolute;
+            z-index: 99999;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            .scroll-down {
+              
+              display: flex;
+              flex-direction: column;
+              width: fit-content;
+              margin: 0 auto;
+              align-items: center;
+              gap: 1rem;
+              margin-bottom: 3rem;
+              
+              
+              .down-arrow {
+                width: 2rem;
+                height: 2rem;
+                svg {
+                  stroke: var(--lightest-slate) !important;
+                }
+              }
+              .scroll-text {
+                animation: jumpInfinite 1.5s infinite;
+
+              }
+            }
+            
+          }
 
           .back {
             position: absolute;
@@ -489,6 +524,19 @@ body {
 }
 
 // animations
+
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 20px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
 .fadeInAnimation {
   animation: fadeInAnimation 0.5s;
   animation-delay: var(--animation-delay, 0.2s);
@@ -723,3 +771,4 @@ a {
     }
   }
 }
+

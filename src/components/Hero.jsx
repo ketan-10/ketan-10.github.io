@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import FireWork from "./Fireworks";
-import Socials from "./Socials";
+import ScrollDown from "./ScrollDown";
 
 const Hero = () => {
   return (
@@ -14,6 +14,7 @@ const Hero = () => {
           <h1>Happy New Year</h1>
         </div>
         <FireWork />
+        <ScrollDown/>
       </div>
     </div>
   );

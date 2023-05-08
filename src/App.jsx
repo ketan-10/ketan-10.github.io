@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import Snowfall from "react-snowfall";
 import Hero from "./components/Hero";
 import "./App.scss";
 import Socials from "./components/Socials";
@@ -22,8 +21,7 @@ function App() {
     }
   );
   return (
-    <>
-      <Snowfall snowflakeCount={50} style={{ height: "300vh", zIndex: 1000 }} />
+    
       <div className="app">
         
         <div className="hero-about-container">
@@ -50,7 +48,7 @@ function App() {
         </div>
         )}
       </div>
-    </>
+    
   );
 }
 
