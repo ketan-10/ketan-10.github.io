@@ -11,7 +11,7 @@ const Hero = () => {
           <p>Full stack developer</p>
         </div>
         <div className="back">
-          <h1>Happy New Year</h1>
+          <h1>Keep Scrolling... 📜</h1>
         </div>
         <FireWork />
         <ScrollDown/>
