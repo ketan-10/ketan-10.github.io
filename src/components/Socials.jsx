@@ -4,7 +4,7 @@ import {
   Database,
   Send,
   Twitter,
-  Instagram,
+  Book,
   Mail,
   Linkedin,
   Layers,
@@ -27,9 +27,9 @@ const Icons = {
     icon: <Layers/>,
     url: "https://stackoverflow.com/users/10066692/ketan-chaudhari",
   },
-  instagram: {
-    icon: <Instagram />,
-    url: "https://www.instagram.com/ketan.chaudhari.1998/",
+  medium: {
+    icon: <Book />,
+    url: "https://medium.com/@ketanchaudhari1998",
   },
   mail: {
     icon: <Mail />,
