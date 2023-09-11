@@ -2,8 +2,8 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 
 const FamilyTreeLoader = () => {
-  const width = window.innerWidth;
-  const height = 400;
+  const width = Math.min(window.innerWidth,600);
+  const height = 300;
   return (
     <div className="map-container">
       <ContentLoader

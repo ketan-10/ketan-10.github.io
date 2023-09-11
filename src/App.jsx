@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import Hero from "./components/Hero";
 import "./App.scss";
 import Socials from "./components/Socials";
 import About from "./components/About";
@@ -26,14 +25,13 @@ function App() {
         
         <div className="hero-about-container">
           <div className="info-header">
-{/*             <Hero /> */}
             <hr />
+            <About />
+            <hr className="only-mobile"/>
             <Socials />
-            <hr />
+            <hr className="only-mobile"/>
           </div>
-          <About />
         </div>
-
         <Suspense fallback={<FamilyTreeLoader/>}>
           <FamilyTree />
         </Suspense>
