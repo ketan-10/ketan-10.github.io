@@ -26,7 +26,7 @@ function App() {
         
         <div className="hero-about-container">
           <div className="info-header">
-            <Hero />
+{/*             <Hero /> */}
             <hr />
             <Socials />
             <hr />
